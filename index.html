@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CountMaster</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: rgba(255, 213, 0, 0.323);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #333;
+        }
+        #result {
+            font-size: 18px;
+        }
+        #animation-container {
+            display: none;
+        }
+        .container {
+           animation: slideIn 1s ease-in-out;
+        }
+        .custom-button 
+        {
+            background-color: #3498db;
+            color: #000000;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, border-radius 0.3s;
+            outline: none;
+        }
+        .custom-button:hover {
+            background-color: #000000;
+            color: #3498db;
+        }
+        .custom-button:focus {
+            outline: none;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+   </style>
+</head>
+<body>
+    <div class="container" style="width: 1016px; height: 250px; background: #4BADC3; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 100px; border: 12px black solid">
+        <h1 style="font-weight: 900;">CountMaster</h1>
+        <p>Insert the file to count the words and letters</p>
+        <input type="file" id="fileInput" accept=".txt" style="display: none;" />
+        <label for="fileInput" class="custom-button" style="font-weight: 700;">Choose File</label>
+        <button onclick="processFile()" class="custom-button" style="font-weight: 700;">Count</button>
+        <div id="result">
+            <p>Total Words: <span id="wordCount">0</span></p>
+            <p>Letters: <span id="letterCount">0</span></p>
+        </div>
+    </div>
+    <script>
+        function processFile() {
+            const fileInput = document.getElementById("fileInput");
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const text = e.target.result;
+                    const words = text.match(/\b\w+\b/g);
+                    const wordCount = words.length;
+                    const letterCount = text.replace(/\s/g, "").length;
+
+                    document.getElementById("wordCount").textContent = wordCount;
+                    document.getElementById("letterCount").textContent = letterCount;
+
+                    animateResult(wordCount, letterCount);
+                };
+                reader.readAsText(file);
+            } else {
+                alert("Please select a file.");
+            }
+        }
+
+        function animateResult(wordCount, letterCount) {
+            const animationContainer = document.getElementById("animation-container");
+            animationContainer.style ;display = "block";
+
+            const wordCountAnim = document.getElementById("wordCountAnim");
+            const letterCountAnim = document.getElementById("letterCountAnim");
+
+            let wordCountValue = 0;
+            let letterCountValue = 0;
+            const interval = 5; // milliseconds (reduce this value for faster animation)
+            const wordIncrement = Math.ceil(wordCount / (500 / interval));
+            const letterIncrement = Math.ceil(letterCount / (500 / interval));
+
+            const animationInterval = setInterval(() => {
+                wordCountValue += wordIncrement;
+                letterCountValue += letterIncrement;
+
+                if (wordCountValue >= wordCount || letterCountValue >= letterCount) {
+                    clearInterval(animationInterval);
+                    wordCountValue = wordCount;
+                    letterCountValue = letterCount;
+                }
+
+                wordCountAnim.textContent = wordCountValue;
+                letterCountAnim.textContent = letterCountValue;
+            }, interval);
+        }
+    </script>
+</body>
+</html>
