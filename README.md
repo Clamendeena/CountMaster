@@ -18,7 +18,7 @@ Instant Results: The results are displayed instantly, ensuring a seamless and ef
 
 How It Works:
 
-Visit the CountMaster website | Upload your text document | Click the "Count" button | Instantly receive the word and letter count results.
+Visit the CountMaster web application | Upload your text document | Click the "Count" button | Instantly receive the word and letter count results.
 
 ![pic 001](https://github.com/Clamendeena/CountMaster/assets/79325932/b1284224-6691-4932-b184-3a9ce992d653)
 
