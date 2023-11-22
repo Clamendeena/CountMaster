@@ -20,5 +20,5 @@ How It Works:
 
 Visit the CountMaster web application | Upload your text document | Click the "Count" button | Instantly receive the word and letter count results.
 
-![pic 001](https://github.com/Clamendeena/CountMaster/assets/79325932/b1284224-6691-4932-b184-3a9ce992d653)
+VISIT: https://clamendeena.github.io/CountMaster/
 
