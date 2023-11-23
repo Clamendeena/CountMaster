@@ -1,12 +1,10 @@
 # CountMaster -  Web Application
 
-Project Title: CountMaster - Your Word and Letter Counter
-
-Project Description:
+OVERVIEW: 
 
 CountMaster is a user-friendly web application designed to assist you in effortlessly calculating the total number of words and letters in a text document. Whether you're a writer, student, or simply someone who needs to keep track of character limits, CountMaster is your go-to tool for quick and accurate word and letter counting.
 
-Key Features:
+FEATURES:
 
 File Upload: CountMaster allows users to easily upload their text files.
 
